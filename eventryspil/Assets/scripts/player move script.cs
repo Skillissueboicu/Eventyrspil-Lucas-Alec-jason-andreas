@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class playermovescript : MonoBehaviour
 {
-    private float direction;
     [SerializeField] private float Speed = 9;
+    public int PlayerHp = 1;
     Rigidbody2D Rb;
 
     void Start()
@@ -33,6 +33,11 @@ public class playermovescript : MonoBehaviour
             retning += new Vector2(0f,-1f*Speed);
         }
         Rb.linearVelocity = retning;
+        
+        if (PlayerHp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
